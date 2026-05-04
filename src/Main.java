@@ -98,8 +98,8 @@ class BubbleSort {            //"This block shows Bubble Sort, which compares an
     }
 }
 
-class LinearSearch {
-    static void search(int[] arr, int target) {
+class LinearSearch {  //This is a straightforward Linear Search.
+    static void search(int[] arr, int target) {    
         int comparisons = 0;
         for (int i = 0; i < arr.length; i++) {
             comparisons++;
@@ -108,11 +108,11 @@ class LinearSearch {
                 System.out.println("Found at index " + i + " | Total comparisons: " + comparisons);
                 return;
             }
-        }
-    }
-}
+        }  //t iterates through the unsorted array element by element from the start to find the target number, 95
+    }       //I also added a counter to track the exact number of comparisons it takes to find the match
+}          //It's simple, but runs in O(n) worst-case time.
 
-class DivideConquer {
+class DivideConquer {  //Instead of a standard loop, I used a divide-and-conquer approach to find the minimum and maximum values.
     static void findRange(int[] arr) {
         int[] result = minMax(arr, 0, arr.length - 1);
         System.out.println("Min=" + result[0] + ", Max=" + result[1] + ", Range=" + (result[1] - result[0]));
@@ -129,10 +129,10 @@ class DivideConquer {
         int mx = Math.max(L[1], R[1]);
         System.out.println("Combine → min=" + mn + ", max=" + mx);
         return new int[]{mn, mx};
-    }
-}
+    }    //The array is recursively split in half, the min and max are found for each pair, and then combined
+}     //This method reduces the total number of comparisons. Finally, it calculates the range by subtracting min from max
 
-class BinarySearch {
+class BinarySearch {         //Binary Search strictly requires sorted data, I passed a brand-new sorted array for this final test
     static void search(int[] arr, int target) {
         int low = 0, high = arr.length - 1, step = 1;
         System.out.println("Array: " + Arrays.toString(arr));
@@ -143,6 +143,6 @@ class BinarySearch {
             else if (arr[mid] < target) low = mid + 1;
             else high = mid - 1;
             step++;
-        }
-    }
+        }       // It searches for the number 52 by checking the middle element and cutting the search area in half each step
+    }             //It’s extremely fast, running in O(log n) time, finding the target in just a few steps
 }
