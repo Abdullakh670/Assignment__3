@@ -80,13 +80,13 @@ class MergeSort {
     }
 }
 
-class BubbleSort {
-    static void sort(int[] arr) {
-        int n = arr.length;
+class BubbleSort {            //"This block shows Bubble Sort, which compares and swaps adjacent elements.
+    static void sort(int[] arr) {             //The key feature in my code is that the loop is hardcoded to stop after exactly 3 passes
+        int n = arr.length;                   //So, it doesn't sort the whole array; it just pushes the three largest numbers to the very end.
         System.out.println("Initial: " + Arrays.toString(arr));
         for (int pass = 1; pass <= 3; pass++) {
             boolean swapped = false;
-            for (int i = 0; i < n - pass; i++) {
+            for (int i = 0; i < n - pass; i++) {                       //It also includes an early exit if no swaps occur."
                 if (arr[i] > arr[i + 1]) {
                     int temp = arr[i]; arr[i] = arr[i+1]; arr[i+1] = temp;
                     swapped = true;
